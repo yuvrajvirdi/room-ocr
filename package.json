@@ -1,0 +1,8 @@
+{
+  "name": "drawing-annotator",
+  "version": "1.0.0",
+  "description": "Take-home: annotate a multipage construction drawing with capture/ignore rectangles",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawing Annotator</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js"></script>
+</head>
+<body>
+  <header class="toolbar">
+    <div class="brand">Drawing Annotator</div>
+
+    <div class="group">
+      <button id="prevPage" title="Previous page (←)">←</button>
+      <span id="pageIndicator" class="page-indicator">– / –</span>
+      <button id="nextPage" title="Next page (→)">→</button>
+    </div>
+
+    <div class="group mode-group">
+      <button id="modeCapture" class="mode capture active" title="Draw green rectangles around text to capture (C)">
+        <span class="swatch green"></span> Capture
+      </button>
+      <button id="modeIgnore" class="mode ignore" title="Draw red rectangles around content to ignore (I)">
+        <span class="swatch red"></span> Ignore
+      </button>
+    </div>
+
+    <div class="group">
+      <span id="saveStatus" class="save-status">Loaded</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div id="viewerContainer" class="viewer-container">
+      <div id="pageWrap" class="page-wrap">
+        <canvas id="pdfCanvas"></canvas>
+        <div id="overlay" class="overlay"></div>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <h2>Captured text <span id="captureCount" class="count"></span></h2>
+      <p class="hint">Green rectangles on this page. OCR runs locally in your browser.</p>
+      <div id="captureList" class="capture-list"></div>
+      <h2>Ignored regions <span id="ignoreCount" class="count"></span></h2>
+      <div id="ignoreList" class="ignore-list"></div>
+      <p class="hint">Tip: click a rectangle to select it, press Delete to remove. Press Esc to cancel a drag.</p>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
